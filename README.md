@@ -4,5 +4,7 @@ Lanzando la tarea server de grunt se abre directamente el navegador con el proye
 o el jade se compilará automáticamente al guardar y aparecerá en el navegador sin necesidad de recargar.
 
 npm install
+
 grunt bow
+
 grunt server

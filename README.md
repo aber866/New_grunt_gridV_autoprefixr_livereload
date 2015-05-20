@@ -8,3 +8,7 @@ npm install
 grunt bow
 
 grunt server
+
+Para subir el proyecto a github, crear un nuevo proyecto sin Readme y luego:
+
+git remote add origin https://github.com/aber866/New_grunt_gridV_autoprefixr_livereload.git

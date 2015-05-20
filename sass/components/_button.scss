@@ -1,0 +1,73 @@
+$public-button: false !default;
+
+$button-primary-text-color: #FFF !default;
+$button-primary-bg-color: #F00 !default;
+$button-primary-active-text-color: #FFF !default;
+$button-primary-active-bg-color: #D00 !default;
+
+$button-default-text-color: #FFF !default;
+$button-default-background: #666 !default;
+$button-default-active-text-color: #FFF !default;
+$button-default-active-bg-color: #333 !default;
+
+$button-default: (	
+	color: $button-default-text-color, 
+	background: $button-default-background, 
+	active-color: $button-default-active-text-color, 
+	active-background: $button-default-active-bg-color
+) !default;
+
+$button-primary: (
+	color: $button-primary-text-color, 
+	background: $button-primary-bg-color, 
+	active-color: $button-primary-active-text-color, 
+	active-background: $button-primary-active-bg-color
+) !default; 
+
+$button-class-prefix: button !default;
+
+//The order of pairs in a map is always the same as when the map was created
+$button-list: (
+	primary: $button-primary,
+	default: $button-default
+) !default;
+
+%button-base {
+	display: inline-block;
+	border: 0;
+	margin: 0;
+	padding: .2em 1em;
+	cursor: pointer;
+}
+
+//Rounded buttons
+@include fwClass(button-rounded, $public-button) {
+	border-radius: 1em;
+}
+
+@mixin makeButton($name, $cfg, $public){
+	$name: #{$button-class-prefix}-#{$name};
+	
+	%#{$name}-base {
+		@extend %button-base;
+		color: map-get($cfg, color); 
+		background: map-get($cfg, background); 
+	}
+
+	%#{$name}-active-base {
+		color: map-get($cfg, active-color); 
+		background: map-get($cfg, active-background); 
+	}
+
+	@include fwClass(#{$name}, $public-button) {
+		@extend %#{$name}-base;
+		&:hover, &:active {
+			@extend %#{$name}-active-base;
+		}
+	} 
+}
+
+//Exports buttons from $button-list
+@each $name, $cfg in $button-list {
+	@include makeButton($name, $cfg, $public-button);
+}

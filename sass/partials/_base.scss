@@ -1,0 +1,32 @@
+$base-font-family: Arial, sans-serif, "Helvetica Neue", Helvetica;
+$base-font-size: 13px;
+$body-font-size: 16px;
+$base-line-height: 13px;
+
+//** Number of columns in the grid.
+$rd-cols-number: 12 !default;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         20px !default;
+
+$gridColumnWidth: 62px;
+$gridRowWidth:    ($rd-cols-number * $gridColumnWidth) + ($grid-gutter-width * ($rd-cols-number - 1));
+
+$rd-cols-gap: $grid-gutter-width/2;
+
+$rd-xs-min-width: 320px !default; // Phone portrait minimum
+$rd-sm-min-width: 480px !default; // Phone landscape minimum
+$rd-md-min-width: 768px !default; // Tablet portrait minimum
+$rd-lg-min-width: 992px !default; // Laptop+Desktop minimum
+$rd-xl-min-width: 1200px !default; // Large screen minimum
+
+$public-scaffolding: false !default; //Externalize col and row classes
+$public-visibility: false !default; //Externalize visible and hidden classes
+
+//The order of pairs in a map is always the same as when the map was created. Add items.
+$rd-types: (
+	xs: (min-width: $rd-xs-min-width),
+	sm: (min-width: $rd-sm-min-width),
+	md: (min-width: $rd-md-min-width),
+	lg: (min-width: $rd-lg-min-width),
+	xl: (min-width: $rd-xl-min-width)
+) !default; // Responsive configuration

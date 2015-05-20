@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+
+%replace-text-by-image-base {
+	text-indent:-9999px;
+	border:none;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+@mixin ico($img,$position:0 0,$size:initial,$color:transparent,$repeat: no-repeat) {
+    background: {
+    	color: $color;
+    	image: url("images/"+$img+".png");
+        image: url("images/"+$img+".svg"), none;
+        position: $position;
+        repeat: $repeat;
+        size: $size;
+    }
+}
+
+@mixin replaceTextWithImage($img, $width, $height) {
+	@extend %replace-text-by-image-base;
+	width: $width; 
+ 	height: $height;
+ 	@include ico($img);
+}
+
+@function em($target, $context: $base-font-size) {
+    @if $target == 0 { @return 0 }
+    @return $target / $context + 0em;
+}
+
+@mixin calc($property, $expression) { 
+    #{$property}: -webkit-calc(#{$expression}); 
+    #{$property}: calc(#{$expression}); 
+}
+
+@mixin iecss3 {
+    position: relative; 
+    behavior:url(../js/lib/css3pie/PIE.htc);
+}

@@ -1,0 +1,333 @@
+@charset "UTF-8";
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block; }
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden],
+template {
+  display: none; }
+
+a {
+  background-color: transparent; }
+
+a:active,
+a:hover {
+  outline: 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b,
+strong {
+  font-weight: bold; }
+
+dfn {
+  font-style: italic; }
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+small {
+  font-size: 80%; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  box-sizing: content-box;
+  height: 0; }
+
+pre {
+  overflow: auto; }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0; }
+
+button {
+  overflow: visible; }
+
+button,
+select {
+  text-transform: none; }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input {
+  line-height: normal; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto; }
+
+optgroup {
+  font-weight: bold; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td,
+th {
+  padding: 0; }
+
+.row2:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.row2 {
+  position: relative; }
+  .row2 > * {
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; }
+
+.row2 {
+  margin-left: -10px;
+  margin-right: -10px; }
+  .row2 > * {
+    padding-left: 10px;
+    padding-right: 10px; }
+
+.row2 .text {
+  display: none; }
+
+@media (min-width: 480px) {
+  .row2 .text {
+    width: 33.33333%; }
+
+  .row2 .menu {
+    width: 41.66667%; }
+
+  .row2 .content {
+    width: 58.33333%; } }
+@media (min-width: 768px) {
+  .row2 .text {
+    display: block; }
+
+  .row2 .menu {
+    width: 25%; }
+
+  .row2 .prominent {
+    width: 50%; }
+
+  .row2 .photo {
+    width: 66.66667%; }
+
+  .row2 .content {
+    width: 75%; }
+
+  .row2 .prominent.prominent-long {
+    width: 100%; } }
+@media (min-width: 992px) {
+  .row2 .prominent, .row2 .prominent.prominent-long {
+    width: 33.33333%; } }
+/*****************************************************************************************************
+ * LAYOUT
+ ****************************************************************************************************/
+* {
+  box-sizing: border-box; }
+
+*:before,
+*:after {
+  box-sizing: border-box; }
+
+html {
+  height: 100%; }
+
+body {
+  margin: 0 10px;
+  font: normal normal normal 13px Arial, sans-serif, "Helvetica Neue", Helvetica;
+  height: 100%;
+  line-height: 13px; }
+
+input, select {
+  font-family: Arial, sans-serif, "Helvetica Neue", Helvetica; }
+
+a {
+  text-decoration: none; }
+
+.wrapper_header,
+.wrapper_main,
+.wrapper_footer {
+  float: none;
+  display: block;
+  clear: both;
+  margin: 0;
+  padding: 0;
+  width: auto; }
+
+.header, .main, .footer {
+  float: none;
+  display: block;
+  clear: both;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 964px; }
+
+/*****************************************************************************************************
+ * CABECERA
+ ****************************************************************************************************/
+.header {
+  height: 7.69231em;
+  margin-bottom: 0.76923em;
+  background-color: #f0f0f0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .header p {
+    margin-top: 0; }
+
+/*****************************************************************************************************
+ * CONTENIDOS
+ ****************************************************************************************************/
+.row2 > * {
+  border: 1px solid #ff0000; }
+.row2 .menu {
+  height: 351px; }
+.row2 .photo {
+  height: 263px; }
+.row2 .text {
+  height: 263px; }
+.row2 .prominent {
+  height: 226px; }
+
+/*****************************************************************************************************
+ * PIE
+ ****************************************************************************************************/
+.footer {
+  background-color: #909090;
+  position: relative;
+  behavior: url(../js/lib/css3pie/PIE.htc);
+  border-radius: 15px;
+  width: calc(50% - 2em); }
+
+/*************************
+ * M├│dulos comunes
+ *************************/
+.bs-grid {
+  background: none repeat scroll 0 0 #eee;
+  outline: 1px solid #ddd;
+  padding: 10px;
+  height: 100%; }
+
+a {
+  background: -webkit-linear-gradient(top, white, black);
+  background: linear-gradient(to bottom, white, black);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.element {
+  box-sizing: content-box; }

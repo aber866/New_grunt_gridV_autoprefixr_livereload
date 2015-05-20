@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+//DO NOT EXTEND PUBLIC CLASSES. ONLY ABSTRACT ONES.
+
+@include fwClass(clearfix, $public-scaffolding) {
+	&:after {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
+}
+
+@include fwClass(row, $public-scaffolding) {
+	@extend %clearfix;
+	position: relative;
+	//Universal selector is slow but reduces the CSS
+	& > * {
+		width: 100%;
+		float: left;
+		box-sizing: border-box; //Needs polyfill in IE7
+		margin: 0;
+		padding: 0;
+	}
+};
+
+@include fwClass(row-gaps, $public-scaffolding) { 
+	margin-left: -#{$rd-cols-gap};
+	margin-right: -#{$rd-cols-gap};
+	& > * {
+		padding-left: $rd-cols-gap;
+		padding-right: $rd-cols-gap;
+	}
+};
+
+@include fwClass(hidden, $public-visibility) { display: none; };
+
+@mixin visibilityHelper ($type) {
+	@include fwClass(visible-#{$type}-block, $public-visibility) { display: block; };
+	@include fwClass(visible-#{$type}, $public-visibility) { @extend %visible-#{$type}-block; };
+	@include fwClass(visible-#{$type}-inline, $public-visibility) { display: inline; };
+	@include fwClass(visible-#{$type}-inline-block, $public-visibility) { display: inline-block; };
+	@include fwClass(hidden-#{$type}, $public-visibility) { display: none; };
+}
+
+@mixin scaffoldingHelper ($type) {
+
+	@include fwClass(col-#{$type}-auto, $public-scaffolding) { width: auto; };
+
+	@for $index from 1 through $rd-cols-number {
+		$width: (100% / $rd-cols-number) * $index;
+		
+		@include fwClass(col-#{$type}-#{$index},$public-scaffolding) { width: $width; }
+	
+		@if ($width != 100%) {
+			@include fwClass(offset-#{$type}-#{$index},$public-scaffolding) { margin-left: $width; }
+		}
+	}
+}
+
+@each $type, $cfg in $rd-types {
+	$min-width: map-get($cfg, min-width);
+	@media (min-width: $min-width) {
+		
+		@include visibilityHelper($type);
+		@include scaffoldingHelper($type);
+		
+	}
+}

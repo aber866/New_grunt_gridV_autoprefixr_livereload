@@ -1,0 +1,70 @@
+@import "../partials/base";
+/*****************************************************************************************************
+ * LAYOUT
+ ****************************************************************************************************/
+// Reset the box-sizing
+//
+// Heads up! This reset may cause conflicts with some third-party widgets.
+// For recommendations on resolving such conflicts, see
+// http://getbootstrap.com/getting-started/#third-box-sizing
+* {
+	box-sizing: border-box;
+}
+*:before,
+*:after {
+  	box-sizing: border-box;
+}
+html{height:100%;}
+body{margin:0 $rd-cols-gap;font: normal normal normal $base-font-size $base-font-family;height:100%;line-height: $base-line-height;}
+input,select{font-family: $base-font-family;}
+a{text-decoration: none;}
+
+.wrapper_header,
+.wrapper_main,
+.wrapper_footer {float:none;display:block;clear:both;margin:0;padding:0;width:auto;}
+.header, .main, .footer {float:none;display:block;clear:both;margin:0 auto;padding:0;max-width: $gridRowWidth;}
+
+/*****************************************************************************************************
+ * CABECERA
+ ****************************************************************************************************/
+.header {height:em(100px);margin-bottom:em(10px);background-color:#f0f0f0; display: flex;
+	p{margin-top: 0;}
+}
+/*****************************************************************************************************
+ * CONTENIDOS
+ ****************************************************************************************************/
+.row2{@extend %row;	@extend %row-gaps;
+	& > * {
+		border: 1px solid #ff0000;
+	}
+	.menu{@extend %col-sm-5; @extend %col-md-3; height:351px;}
+	.content{@extend %col-sm-7; @extend %col-md-9;}
+	.photo{ @extend %col-md-8; height:263px;}
+	.text{@extend %col-sm-4; @extend %hidden; @extend %visible-md; height:263px;}
+	.prominent{@extend %col-md-6; @extend %col-lg-4; height:226px;
+		&.prominent-long{@extend %col-md-12; @extend %col-lg-4;}
+	}
+}
+
+/*****************************************************************************************************
+ * PIE
+ ****************************************************************************************************/
+.footer {background-color:#909090;@include iecss3();border-radius: 15px;width: calc(50% - 2em)}
+/*************************
+ * Módulos comunes
+ *************************/
+.bs-grid{
+	background: none repeat scroll 0 0 #eee;
+    outline: 1px solid #ddd;
+    padding: 10px;
+    height: 100%;
+}
+//Comprobación autoprefixer
+a {//Añade
+  background: linear-gradient(to bottom, white, black);display: flex;
+}
+.element {//Quita
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}

@@ -78,6 +78,13 @@ module.exports = function (grunt) {
                     }
                 }
             }
+            /*server: {
+                options: {
+                    port: 9000,
+                    livereload: true,
+                    base: '.'
+                }
+            }*/
         },
         open: {
             all: {
@@ -116,5 +123,6 @@ module.exports = function (grunt) {
     grunt.registerTask('bow', ['bower']);
     //Con reaload
     grunt.registerTask('server',['livereload-start','connect','open','jade','sass','autoprefixer','regarde']);
+    //grunt.registerTask('co',['jade', 'sass', 'connect', 'open', 'watch']);
 
 };
